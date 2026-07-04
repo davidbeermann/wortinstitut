@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title and page.url != "/" %}{{ title }} – {% endif %}Dr. Werner Irro · Wort-Institut</title>
   {% if description %}<meta name="description" content="{{ description }}">{% endif %}
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
 </head>
 <body>
 
 <header class="masthead">
-  <p class="masthead-name"><a href="/">Dr. Werner Irro</a></p>
+  <p class="masthead-name"><a href="{{ '/' | url }}">Dr. Werner Irro</a></p>
   <p class="masthead-sub">Wort-Institut · Hamburg</p>
 
   <nav class="nav" aria-label="Hauptnavigation">
@@ -18,16 +18,16 @@
     <label for="nav-toggle" class="nav-toggle-label">Menü</label>
     <ul class="nav-list">
       <li class="has-sub {% if '/lektorat/' in page.url %}is-active{% endif %}">
-        <a href="/lektorat/">Lektorat</a>
+        <a href="{{ '/lektorat/' | url }}">Lektorat</a>
         <ul class="sub-list">
-          <li><a href="/lektorat/fuer-verlage/" {% if page.url == '/lektorat/fuer-verlage/' %}aria-current="page"{% endif %}>Für Verlage</a></li>
-          <li><a href="/lektorat/fuer-autorinnen-und-autoren/" {% if page.url == '/lektorat/fuer-autorinnen-und-autoren/' %}aria-current="page"{% endif %}>Für Autorinnen und Autoren</a></li>
-          <li><a href="/lektorat/lektoratsgutachten/" {% if page.url == '/lektorat/lektoratsgutachten/' %}aria-current="page"{% endif %}>Lektoratsgutachten</a></li>
+          <li><a href="{{ '/lektorat/fuer-verlage/' | url }}" {% if page.url == '/lektorat/fuer-verlage/' %}aria-current="page"{% endif %}>Für Verlage</a></li>
+          <li><a href="{{ '/lektorat/fuer-autorinnen-und-autoren/' | url }}" {% if page.url == '/lektorat/fuer-autorinnen-und-autoren/' %}aria-current="page"{% endif %}>Für Autorinnen und Autoren</a></li>
+          <li><a href="{{ '/lektorat/lektoratsgutachten/' | url }}" {% if page.url == '/lektorat/lektoratsgutachten/' %}aria-current="page"{% endif %}>Lektoratsgutachten</a></li>
         </ul>
       </li>
-      <li {% if page.url == '/autor/' %}class="is-active"{% endif %}><a href="/autor/" {% if page.url == '/autor/' %}aria-current="page"{% endif %}>Autor</a></li>
-      <li {% if page.url == '/vita/' %}class="is-active"{% endif %}><a href="/vita/" {% if page.url == '/vita/' %}aria-current="page"{% endif %}>Vita</a></li>
-      <li {% if page.url == '/kontakt/' %}class="is-active"{% endif %}><a href="/kontakt/" {% if page.url == '/kontakt/' %}aria-current="page"{% endif %}>Kontakt</a></li>
+      <li {% if page.url == '/autor/' %}class="is-active"{% endif %}><a href="{{ '/autor/' | url }}" {% if page.url == '/autor/' %}aria-current="page"{% endif %}>Autor</a></li>
+      <li {% if page.url == '/vita/' %}class="is-active"{% endif %}><a href="{{ '/vita/' | url }}" {% if page.url == '/vita/' %}aria-current="page"{% endif %}>Vita</a></li>
+      <li {% if page.url == '/kontakt/' %}class="is-active"{% endif %}><a href="{{ '/kontakt/' | url }}" {% if page.url == '/kontakt/' %}aria-current="page"{% endif %}>Kontakt</a></li>
     </ul>
   </nav>
 </header>
@@ -37,7 +37,7 @@
 </main>
 
 <footer class="footer">
-  <p>© {% year %} Dr. Werner Irro · <a href="/impressum/">Impressum</a> · <a href="/datenschutz/">Datenschutz</a></p>
+  <p>© {% year %} Dr. Werner Irro · <a href="{{ '/impressum/' | url }}">Impressum</a> · <a href="{{ '/datenschutz/' | url }}">Datenschutz</a></p>
 </footer>
 
 </body>
