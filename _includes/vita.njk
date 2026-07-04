@@ -1,0 +1,10 @@
+---
+layout: base.njk
+---
+<h1>{{ title }}</h1>
+{% if portrait %}
+<figure class="portrait">
+  <img src="{{ portrait }}" alt="{{ portrait_alt or 'Porträt Dr. Werner Irro' }}">
+</figure>
+{% endif %}
+{{ content | safe }}

@@ -1,0 +1,13 @@
+---
+layout: base.njk
+---
+<h1>{{ title }}</h1>
+{{ content | safe }}
+<div class="contact-block">
+  <p class="contact-address">{{ name }}<br>{{ firma }}<br>{{ strasse }}<br>{{ ort }}</p>
+  <p class="contact-details">
+    E-Mail: {{ email }}<br>
+    Tel. {{ telefon }}<br>
+    m. {{ mobil }}
+  </p>
+</div>

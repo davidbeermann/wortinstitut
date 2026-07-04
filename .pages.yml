@@ -1,0 +1,124 @@
+media:
+  input: media
+  output: /media
+
+content:
+  - name: startseite
+    label: Startseite
+    type: file
+    path: content/index.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: page.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: description, label: Kurzbeschreibung (für Suchmaschinen), type: string }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: lektorat
+    label: Lektorat – Übersicht
+    type: file
+    path: content/lektorat/index.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: lektorat.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: description, label: Kurzbeschreibung (für Suchmaschinen), type: string }
+      - { name: body, label: Einleitungstext, type: rich-text }
+
+  - name: lektorat-verlage
+    label: Lektorat – Für Verlage
+    type: file
+    path: content/lektorat/fuer-verlage.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: page.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: teaser, label: Kurztext auf der Übersichtsseite, type: text }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: lektorat-autoren
+    label: Lektorat – Für Autorinnen und Autoren
+    type: file
+    path: content/lektorat/fuer-autorinnen-und-autoren.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: page.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: teaser, label: Kurztext auf der Übersichtsseite, type: text }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: lektorat-gutachten
+    label: Lektorat – Lektoratsgutachten
+    type: file
+    path: content/lektorat/lektoratsgutachten.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: page.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: teaser, label: Kurztext auf der Übersichtsseite, type: text }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: autor
+    label: Autor (Publikationen)
+    type: file
+    path: content/autor/index.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: autor.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: description, label: Kurzbeschreibung (für Suchmaschinen), type: string }
+      - { name: body, label: Einleitungstext, type: rich-text }
+      - name: publikationen
+        label: Publikationen
+        type: object
+        list: true
+        view:
+          fields: [titel, jahr]
+        fields:
+          - { name: titel, label: Titel, type: string, required: true }
+          - { name: untertitel, label: Untertitel (optional), type: string }
+          - { name: verlag, label: Verlag, type: string }
+          - { name: jahr, label: Jahr, type: string }
+          - { name: rolle, label: Rolle (z.B. als Herausgeber), type: string }
+          - { name: cover, label: Buchcover, type: image }
+
+  - name: vita
+    label: Vita
+    type: file
+    path: content/vita/index.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: vita.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: description, label: Kurzbeschreibung (für Suchmaschinen), type: string }
+      - { name: portrait, label: Porträtfoto, type: image }
+      - { name: portrait_alt, label: Bildbeschreibung (für Vorlesefunktion), type: string }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: kontakt
+    label: Kontakt
+    type: file
+    path: content/kontakt/index.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: kontakt.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: description, label: Kurzbeschreibung (für Suchmaschinen), type: string }
+      - { name: name, label: Name, type: string }
+      - { name: firma, label: Firma, type: string }
+      - { name: strasse, label: Straße und Hausnummer, type: string }
+      - { name: ort, label: PLZ und Ort, type: string }
+      - { name: email, label: E-Mail, type: string }
+      - { name: telefon, label: Telefon, type: string }
+      - { name: mobil, label: Mobil, type: string }
+      - { name: body, label: Zusätzlicher Text (optional), type: rich-text }
+
+  - name: impressum
+    label: Impressum
+    type: file
+    path: content/impressum.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: page.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: body, label: Text, type: rich-text }
+
+  - name: datenschutz
+    label: Datenschutzerklärung
+    type: file
+    path: content/datenschutz.md
+    fields:
+      - { name: layout, type: string, hidden: true, default: page.njk }
+      - { name: title, label: Titel, type: string, required: true }
+      - { name: body, label: Text, type: rich-text }

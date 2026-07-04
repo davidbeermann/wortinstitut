@@ -1,0 +1,14 @@
+{
+  "name": "wortinstitut",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website Dr. Werner Irro / Wort-Institut – statisch generiert mit Eleventy",
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "3.1.6"
+  }
+}

@@ -1,0 +1,254 @@
+/* ---------------------------------------------------------------
+   Wort-Institut · Dr. Werner Irro
+   Ruhiges, literarisches Layout: Text auf Weiß, Serifenschrift,
+   schmale Lesespalte, dezente Bordeaux-Akzente.
+   --------------------------------------------------------------- */
+
+:root {
+  --text: #24211e;
+  --text-soft: #5c574f;
+  --text-faint: #8d877d;
+  --accent: #7c2f33;
+  --hairline: #e4e0d8;
+  --paper: #ffffff;
+  --serif: Georgia, "Times New Roman", "Liberation Serif", serif;
+  --measure: 40rem;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--text);
+  font-family: var(--serif);
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover, a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* ----- Kopfbereich ----- */
+
+.masthead {
+  text-align: center;
+  padding: 3rem 1.25rem 0;
+}
+
+.masthead-name {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.02em;
+}
+.masthead-name a { color: var(--text); }
+.masthead-name a:hover { text-decoration: none; }
+
+.masthead-sub {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* ----- Navigation ----- */
+
+.nav { margin-top: 1.75rem; border-bottom: 1px solid var(--hairline); }
+
+.nav-toggle { position: absolute; opacity: 0; }
+.nav-toggle-label { display: none; }
+
+.nav-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2.25rem;
+}
+
+.nav-list > li { position: relative; padding-bottom: 0.8rem; }
+
+.nav-list > li > a {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+.nav-list > li.is-active > a,
+.nav-list > li > a[aria-current="page"] { color: var(--accent); }
+
+.nav-list > li.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -1px;
+  border-bottom: 2px solid var(--accent);
+}
+
+/* Untermenü Lektorat (Desktop: aufklappen bei Hover/Fokus) */
+.sub-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.6rem 1rem;
+  position: absolute;
+  top: 100%; left: 50%;
+  transform: translateX(-50%);
+  min-width: 16rem;
+  background: var(--paper);
+  border: 1px solid var(--hairline);
+  border-top: none;
+  display: none;
+  text-align: left;
+  z-index: 10;
+}
+.has-sub:hover .sub-list,
+.has-sub:focus-within .sub-list { display: block; }
+
+.sub-list a {
+  display: block;
+  padding: 0.35rem 0.25rem;
+  font-size: 0.92rem;
+  color: var(--text-soft);
+}
+.sub-list a:hover,
+.sub-list a[aria-current="page"] { color: var(--accent); }
+
+/* ----- Inhalt ----- */
+
+.content {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: normal;
+  letter-spacing: 0.01em;
+  margin: 0 0 1.4rem;
+}
+
+h2 { font-size: 1.15rem; font-weight: normal; margin: 2rem 0 0.5rem; }
+
+p { margin: 0 0 1.1rem; }
+
+.content ul { padding-left: 1.2rem; }
+.content li { margin-bottom: 0.4rem; }
+
+/* Teaser-Liste auf der Lektorat-Übersicht */
+.teaser-list { list-style: none; padding: 0 !important; margin: 1.5rem 0 0; }
+.teaser-list li { border-top: 1px solid var(--hairline); padding: 1.25rem 0; margin: 0; }
+.teaser-list h2 { margin: 0 0 0.3rem; }
+.teaser-list p { margin: 0; color: var(--text-soft); font-size: 0.98rem; }
+
+/* Publikationen */
+.pub-list { list-style: none; padding: 0 !important; margin: 1.5rem 0 0; }
+.pub {
+  display: flex;
+  gap: 1.4rem;
+  align-items: flex-start;
+  border-top: 1px solid var(--hairline);
+  padding: 1.4rem 0;
+  margin: 0;
+}
+.pub-cover {
+  flex-shrink: 0;
+  width: 88px;
+  height: auto;
+  border: 1px solid var(--hairline);
+}
+.pub-cover-placeholder {
+  width: 88px;
+  height: 128px;
+  background:
+    linear-gradient(var(--paper), var(--paper)) padding-box,
+    repeating-linear-gradient(45deg, #f4f2ec 0 6px, #faf9f5 6px 12px);
+  background: repeating-linear-gradient(45deg, #f6f4ee 0 6px, #fbfaf6 6px 12px);
+}
+.pub-title { margin: 0; font-size: 1.05rem; }
+.pub-subtitle { margin: 0.15rem 0 0; font-size: 1rem; }
+.pub-meta { margin: 0.4rem 0 0; color: var(--text-soft); font-size: 0.92rem; }
+
+/* Vita-Porträt */
+.portrait { margin: 0 0 1.5rem; }
+.portrait img {
+  display: block;
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--hairline);
+}
+
+/* Kontakt */
+.contact-block { margin-top: 0.5rem; }
+.contact-address { margin-bottom: 1.4rem; }
+.contact-details { color: var(--text-soft); }
+
+/* ----- Fußzeile ----- */
+
+.footer {
+  border-top: 1px solid var(--hairline);
+  text-align: center;
+  padding: 1.5rem 1.25rem 2.5rem;
+}
+.footer p { margin: 0; font-size: 0.85rem; color: var(--text-faint); }
+.footer a { color: var(--text-faint); }
+.footer a:hover { color: var(--accent); }
+
+/* ----- Mobil ----- */
+
+@media (max-width: 640px) {
+  .masthead { padding-top: 2rem; }
+  .masthead-name { font-size: 1.6rem; }
+
+  .nav { position: relative; }
+
+  .nav-toggle-label {
+    display: inline-block;
+    padding: 0.4rem 0 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    color: var(--text-soft);
+    cursor: pointer;
+  }
+  .nav-toggle-label::before { content: "☰\00a0\00a0"; }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    text-align: center;
+    border-top: 1px solid var(--hairline);
+    padding: 0.5rem 0 1rem;
+  }
+  .nav-toggle:checked ~ .nav-list { display: flex; }
+  .nav-toggle:focus-visible ~ .nav-toggle-label { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .nav-list > li { padding: 0.45rem 0; }
+  .nav-list > li.is-active::after { display: none; }
+
+  /* Untermenü mobil: immer eingerückt sichtbar */
+  .sub-list {
+    display: block;
+    position: static;
+    transform: none;
+    border: none;
+    min-width: 0;
+    padding: 0.2rem 0 0;
+    text-align: center;
+  }
+  .sub-list a { padding: 0.3rem 0; font-size: 0.9rem; }
+  .sub-list a::before { content: "– "; color: var(--text-faint); }
+
+  .pub { gap: 1rem; }
+  .pub-cover, .pub-cover-placeholder { width: 68px; }
+  .pub-cover-placeholder { height: 100px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+}
