@@ -1,8 +1,32 @@
 /* ---------------------------------------------------------------
    Wort-Institut · Dr. Werner Irro
-   Ruhiges, literarisches Layout: Text auf Weiß, Serifenschrift,
+   Ruhiges, literarisches Layout: Text auf Weiß, serifenlose Schrift,
    schmale Lesespalte, dezente Bordeaux-Akzente.
    --------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/noto-sans-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/noto-sans-latin-400-italic.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/noto-sans-latin-700-normal.woff2") format("woff2");
+}
 
 :root {
   --text: #24211e;
@@ -11,7 +35,7 @@
   --accent: #7c2f33;
   --hairline: #e4e0d8;
   --paper: #ffffff;
-  --serif: Georgia, "Times New Roman", "Liberation Serif", serif;
+  --sans: "Noto Sans", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --measure: 40rem;
 }
 
@@ -23,7 +47,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--text);
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1.0625rem;
   line-height: 1.75;
 }

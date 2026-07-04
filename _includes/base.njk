@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if title and page.url != "/" %}{{ title }} – {% endif %}Dr. Werner Irro · Wort-Institut</title>
   {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+  <link rel="preload" href="{{ '/assets/fonts/noto-sans-latin-400-normal.woff2' | url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/style.css' | url }}">
 </head>
 <body>
