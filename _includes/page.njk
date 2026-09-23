@@ -1,5 +1,5 @@
 ---
 layout: base.njk
 ---
-<h1>{{ title }}</h1>
+<h1{% if hide_title %} class="visually-hidden"{% endif %}>{{ title }}</h1>
 {{ content | safe }}

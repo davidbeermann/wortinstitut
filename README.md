@@ -88,4 +88,4 @@ eleventy.config.js Eleventy-Konfiguration
 ## Wartung
 
 - Einzige Abhängigkeit ist `@11ty/eleventy`. Ein Update ist selten nötig; wenn doch: `npm update` und testen.
-- Vor Veröffentlichung: die Platzhaltertexte unter **Impressum** und **Datenschutzerklärung** rechtlich prüfen und vervollständigen.
+- Vor Veröffentlichung: die rechtlichen Hinweise auf der Seite **Impressum & Datenschutz** prüfen und bei Bedarf vervollständigen.
