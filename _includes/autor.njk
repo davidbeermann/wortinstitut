@@ -6,7 +6,7 @@ layout: base.njk
 <ul class="pub-list">
 {%- for pub in publikationen %}
   <li class="pub">
-    {% if pub.cover %}<img class="pub-cover" src="{{ pub.cover }}" alt="Buchcover: {{ pub.titel }}" loading="lazy">
+    {% if pub.cover %}{% cover pub.cover, "Buchcover: " + pub.titel %}
     {% else %}<span class="pub-cover pub-cover-placeholder" aria-hidden="true"></span>{% endif %}
     <div class="pub-text">
       <p class="pub-title">{{ pub.titel }}</p>
